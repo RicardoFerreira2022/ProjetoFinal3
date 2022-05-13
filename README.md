@@ -1,3 +1,3 @@
-# PHPDB01
+# Projeto Final
 
 Aplicativo modelo full-stack usando HTML, CSS, PHP e MySQL.

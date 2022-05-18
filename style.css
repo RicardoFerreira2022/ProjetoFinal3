@@ -130,7 +130,7 @@ body {
     flex-direction: column;
     justify-content: space-around;
     align-items: center;
-    color: white;
+    color: #DF4E2F;
     text-decoration: none;
     padding: .5rem;
 }
@@ -163,7 +163,7 @@ body {
 .wrap>footer {
     background: rgba(0, 0, 0, .75);
     padding: 1px 0;
-    color: white;
+    color: #DF4E2F;
     display: flex;
     align-items: center;
     justify-content: space-between;

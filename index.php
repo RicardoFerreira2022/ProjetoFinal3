@@ -57,7 +57,7 @@ $artigos .= '</div>';
 /**
  * Variável que define o título desta página.
  */
-$title = "Quem tem fome tem pressa...";
+$title = "Hoje tem?";
 
 /**
  * Inclui o cabeçalho da página.
@@ -68,19 +68,25 @@ require($_SERVER['DOCUMENT_ROOT'] . '/_header.php');
 
 <section>
 
-    <?php
+<?php
 
-    // Exibe todos os artigos.
-    echo $artigos;
+// Exibe todos os artigos.
+echo $artigos;
 
-    ?>
+?>
 
 </section>
 
 <aside>
 
-    <h3>Lateral</h3>
-    <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Officia, aperiam corporis culpa consequatur iusto.</p>
+<?php
+
+// Obtém os artigos mais visitados para a variável $mv.
+$mv = mostViewed();
+
+// Se existem artigos mais visitados, exibe eles...
+if ($mv) echo "<h3>Mais visitados</h3>{$mv}";
+?>
 
 </aside>
 

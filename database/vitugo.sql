@@ -30,6 +30,7 @@ CREATE TABLE articles (
     art_content TEXT,
     art_author INT,
     art_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    art_views int default '0',
     art_status ENUM('on', 'off', 'deleted') DEFAULT 'on',
     FOREIGN KEY (art_author) REFERENCES users (user_id)
 );

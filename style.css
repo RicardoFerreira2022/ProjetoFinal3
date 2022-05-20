@@ -130,7 +130,7 @@ body {
     flex-direction: column;
     justify-content: space-around;
     align-items: center;
-    color: white;
+    color: #DF4E2F;
     text-decoration: none;
     padding: .5rem;
 }
@@ -163,7 +163,7 @@ body {
 .wrap>footer {
     background: rgba(0, 0, 0, .75);
     padding: 1px 0;
-    color: white;
+    color: #DF4E2F;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -462,4 +462,25 @@ form button[id="passToggle"], form button[id="newPassToggle"] {
         flex: 0 0 200px;
     }
 
+}
+
+
+/**
+ * Artigos mais visitados na barra lateral.
+ */
+.side-art-box {
+    margin: 1rem 0;
+    cursor: pointer;
+}
+
+.side-art-title {
+    font-weight: bold;
+}
+
+.side-art-title:hover {
+    color: steelblue;
+}
+
+.side-art-intro {
+    font-size: small;
 }

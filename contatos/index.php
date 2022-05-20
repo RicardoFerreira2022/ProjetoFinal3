@@ -159,7 +159,7 @@ require($_SERVER['DOCUMENT_ROOT'] . '/_header.php');
 
         <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" name="contatos">
 
-            <p>Preencha todos os campos para entrar em contato com a equipe do Vitugo.</p>
+            <p>Preencha todos os campos para entrar em contato com a equipe do Eclipse.</p>
 
             <?php if ($error != '') echo '<div class="error">' . $error . '</div>'; ?>
 

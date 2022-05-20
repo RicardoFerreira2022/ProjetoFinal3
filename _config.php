@@ -234,3 +234,68 @@ function upload_photo($photo_dir, $photo_name = '')
         'error' => $error       // Mensagem de erro em caso de falha ou "false" se deu certo.
     );
 }
+
+/**
+ * Função que lista de artigos mais visualizados.
+ * 
+ * O parâmetro $num define quantos artigos serão obtidos.
+ *      Default: 4 artigos
+ * 
+ * Retorna "false: boolean" se não encontrar artigos.
+ * 
+ * Exemplos de uso:
+ * 
+ *      echo mostViewed(); //Exibe 4 artigos.
+ *      echo mostViewed(6); // Exibe 6 artigos.
+ *      $aside = mostViewed(); // Armazena artigos em uma variável para uso posterior.
+ * 
+ * Lembre-se de atualizar o banco de dados, incluindo o campo 
+ * "art_views INT DEFAULT '0'" na tabela "articles".
+ * 
+ * Atualize também, em '/style.css', as classes usadas na visualização.
+ * 
+ * Para ver um exemplo funcional, veja o código da <aside> em '/index.php'.
+ */
+function mostViewed($num = 4)
+{
+
+    global $conn;
+
+    $sql = <<<SQL
+
+SELECT art_id, art_title, art_intro
+FROM articles 
+WHERE art_status = 'on'
+	AND art_date <= NOW()
+ORDER BY art_views DESC
+LIMIT {$num};
+
+SQL;
+
+    $res = $conn->query($sql);
+
+    $out = '';
+
+    if ($res->num_rows > 0) :
+
+        while ($art = $res->fetch_assoc()) :
+
+            $out .= <<<HTML
+
+<div class="side-art-box" onclick="location.href='/ler/?id={$art['art_id']}'">
+    <div class="side-art-title">{$art['art_title']}</div>
+    <div class="side-art-intro">{$art['art_intro']}</div>
+</div>
+
+HTML;
+
+        endwhile;
+
+    else :
+
+        $out = false;
+
+    endif;
+
+    return $out;
+}
